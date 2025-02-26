@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdeab090-2133-4dbf-8021-256c4ee6fc14" name="Changes" comment="initiation 3" />
+    <list default="true" id="bdeab090-2133-4dbf-8021-256c4ee6fc14" name="Changes" comment="pipeline fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1740558383050</updated>
       <workItem from="1740558384211" duration="2448000" />
-      <workItem from="1740560844619" duration="1534000" />
+      <workItem from="1740560844619" duration="1886000" />
     </task>
     <task id="LOCAL-00001" summary="initiation">
       <option name="closed" value="true" />
@@ -107,7 +107,23 @@
       <option name="project" value="LOCAL" />
       <updated>1740562001761</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="new pipeline">
+      <option name="closed" value="true" />
+      <created>1740562475743</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740562475743</updated>
+    </task>
+    <task id="LOCAL-00006" summary="pipeline fix">
+      <option name="closed" value="true" />
+      <created>1740562732316</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740562732316</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +133,8 @@
     <MESSAGE value="initiation" />
     <MESSAGE value="initiation 2" />
     <MESSAGE value="initiation 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="initiation 3" />
+    <MESSAGE value="new pipeline" />
+    <MESSAGE value="pipeline fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="pipeline fix" />
   </component>
 </project>
