@@ -1,25 +1,25 @@
-pipeline{
+pipeline {
     agent any
-    tools{
+    tools {
         maven 'Maven'
         jdk 'java21'
     }
 
-    stages{
-        stage('checkout'){
-            steps{
+    stages {
+        stage('checkout') {
+            steps {
                 git branch: 'newBranch', url: 'https://github.com/Pawaffle/TestInClass26.02.git'
             }
         }
 
-        stage('build'){
-            steps{
+        stage('build') {
+            steps {
                 bat 'mvn clean install'
             }
         }
 
-        stage('test'){
-            steps{
+        stage('test') {
+            steps {
                 bat 'mvn test'
             }
         }
@@ -32,9 +32,9 @@ pipeline{
                 always {
                     junit 'target/surefire-reports/*.xml' // Publish JUnit test results
 
-                    // Use Coverage Plugin instead of jacocoPublisher
+                    // Use Coverage Plugin properly
                     recordCoverage(
-                        tools: [jacoco(pattern: '**/target/site/jacoco/jacoco.xml')]
+                        coverageAdapters: [jacocoAdapter(path: '**/target/site/jacoco/jacoco.xml')]
                     )
                 }
             }
