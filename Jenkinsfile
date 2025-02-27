@@ -31,11 +31,10 @@ pipeline{
             post {
                 always {
                     junit 'target/surefire-reports/*.xml' // Publish JUnit test results
-                    jacocoPublisher(
-                        execPattern: '**/target/jacoco.exec',
-                        classPattern: '**/target/classes',
-                        sourcePattern: '**/src/main/java',
-                        exclusionPattern: '**/test/**'
+                    jacoco( // Correct JaCoCo publisher
+                        execFiles: '**/target/jacoco.exec',
+                        classDirs: '**/target/classes',
+                        sourceDirs: '**/src/main/java'
                     )
                 }
             }
