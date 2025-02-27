@@ -1,25 +1,25 @@
-pipeline {
+pipeline{
     agent any
-    tools {
+    tools{
         maven 'Maven'
         jdk 'java21'
     }
 
-    stages {
-        stage('checkout') {
-            steps {
+    stages{
+        stage('checkout'){
+            steps{
                 git branch: 'newBranch', url: 'https://github.com/Pawaffle/TestInClass26.02.git'
             }
         }
 
-        stage('build') {
-            steps {
+        stage('build'){
+            steps{
                 bat 'mvn clean install'
             }
         }
 
-        stage('test') {
-            steps {
+        stage('test'){
+            steps{
                 bat 'mvn test'
             }
         }
@@ -31,9 +31,10 @@ pipeline {
             post {
                 always {
                     junit 'target/surefire-reports/*.xml' // Publish JUnit test results
-
-                    // Use publishCoverage instead of recordCoverage
-                    publishCoverage adapters: [jacocoAdapter('target/site/jacoco/jacoco.xml')]
+                    jacoco execPattern: '**/target/jacoco.exec', // Reads JaCoCo execution file
+                           classPattern: '**/target/classes',
+                           sourcePattern: '**/src/main/java',
+                           exclusionPattern: '**/test/**'
                 }
             }
         }
