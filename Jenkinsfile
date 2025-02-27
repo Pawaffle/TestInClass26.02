@@ -32,10 +32,8 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml' // Publish JUnit test results
 
-                    // Use Coverage Plugin properly
-                    recordCoverage(
-                        coverageAdapters: [jacocoAdapter(path: '**/target/site/jacoco/jacoco.xml')]
-                    )
+                    // Use publishCoverage instead of recordCoverage
+                    publishCoverage adapters: [jacocoAdapter('target/site/jacoco/jacoco.xml')]
                 }
             }
         }
