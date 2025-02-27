@@ -1,25 +1,26 @@
-pipeline{
+pipeline {
     agent any
-    tools{
+
+    tools {
         maven 'Maven'
         jdk 'java21'
     }
 
-    stages{
-        stage('checkout'){
-            steps{
+    stages {
+        stage('Checkout') {
+            steps {
                 git branch: 'newBranch', url: 'https://github.com/Pawaffle/TestInClass26.02.git'
             }
         }
 
-        stage('build'){
-            steps{
+        stage('Build') {
+            steps {
                 bat 'mvn clean install'
             }
         }
 
-        stage('test'){
-            steps{
+        stage('Test') {
+            steps {
                 bat 'mvn test'
             }
         }
@@ -31,15 +32,13 @@ pipeline{
         }
     }
 
-
     post {
         always {
             junit 'target/surefire-reports/*.xml' // Publish JUnit test results
 
             jacocoPublisher(
                 execPattern: '**/target/jacoco.exec',
-                classPattern: '**/target/classes',
-                sourcePattern: '**/src/main/java',
+                inclusionPattern: '**/target/classes/**',
                 exclusionPattern: '**/test/**'
             )
         }
